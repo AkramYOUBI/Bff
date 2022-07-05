@@ -1,6 +1,7 @@
 package com.example.BFF.bff.service.Refinancing;
 
 import com.example.BFF.bff.domaine.support.Refinancing;
+import com.example.BFF.bff.service.utils.ApiPath;
 import com.example.BFF.bff.service.utils.HttpRequests.HttpClient;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,4 +17,9 @@ public class RefinancingService {
     private RestTemplate restTemplate;
 
 
+    public String createRefinancing(Refinancing refinancing) {
+        String refinancingfromRefinancingService =
+                httpClient.postRequest("http://localhost:8080/api/refinancing/save",refinancing);
+        return refinancingfromRefinancingService;
+    }
 }

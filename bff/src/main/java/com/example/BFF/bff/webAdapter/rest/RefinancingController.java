@@ -18,9 +18,8 @@ public class RefinancingController {
     }
 
     @PostMapping("/save")
-    public Refinancing createRefinancing(@RequestBody Refinancing refinancing){
-        //Refinancing refinancingdb = refinancingService.createRefinancing(refinancing);
-        //return refinancingdb;
-        return null;
+    public String createRefinancing(@RequestBody Refinancing refinancing){
+        String refinancingdb = refinancingService.createRefinancing(refinancing);
+        return refinancingdb;
     }
 }

@@ -5,16 +5,13 @@ import com.example.BFF.bff.service.utils.HttpRequests.HttpClient;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
-@Setter
 public class GenericService {
 
-    private ClientUrlProperties clientUrlProperties;
-    private HttpClient httpClient;
+    protected final ClientUrlProperties clientUrlProperties;
+    protected final HttpClient httpClient;
 
-    public GenericService(ClientUrlProperties clientUrlProperties, HttpClient httpClient){
-        this.clientUrlProperties=clientUrlProperties;
-        this.httpClient=httpClient;
+    public GenericService(ClientUrlProperties clientUrlProperties, HttpClient httpClient) {
+        this.clientUrlProperties = clientUrlProperties;
+        this.httpClient = httpClient;
     }
-
 }

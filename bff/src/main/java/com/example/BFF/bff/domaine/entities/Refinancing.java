@@ -1,6 +1,6 @@
-package com.example.BFF.bff.domaine.support;
+package com.example.BFF.bff.domaine.entities;
 
-import com.example.BFF.bff.service.Refinancing.TypeTransaction;
+import com.example.BFF.bff.domaine.support.Document;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,7 +9,6 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
-import java.util.UUID;
 
 @AllArgsConstructor
 @NoArgsConstructor

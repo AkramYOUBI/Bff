@@ -1,5 +1,7 @@
 package com.example.BFF.bff.web;
 
+import com.example.BFF.bff.domaine.RefinancingDTOs.RefinancingInput;
+import com.example.BFF.bff.domaine.RefinancingDTOs.RefinancingOutput;
 import com.example.BFF.bff.domaine.entities.Refinancing;
 import com.example.BFF.bff.service.Refinancing.RefinancingService;
 import lombok.RequiredArgsConstructor;
@@ -9,7 +11,9 @@ public class RefinancingAPI {
 
     private final RefinancingService refinancingService;
 
-    public String createRefinancing(Refinancing refinancing) {
-        return refinancingService.createRefinancing(refinancing);
+
+    public RefinancingOutput createRefinancing(RefinancingInput refinancingInput) {
+        RefinancingOutput refinancingOutput = refinancingService.createRefinancing(refinancingInput);
+        return refinancingOutput;
     }
 }

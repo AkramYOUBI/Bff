@@ -1,5 +1,7 @@
 package com.example.BFF.bff.webAdapter.rest;
 
+import com.example.BFF.bff.domaine.RefinancingDTOs.RefinancingInput;
+import com.example.BFF.bff.domaine.RefinancingDTOs.RefinancingOutput;
 import com.example.BFF.bff.domaine.entities.Refinancing;
 import com.example.BFF.bff.service.Refinancing.RefinancingService;
 import com.example.BFF.bff.web.RefinancingAPI;
@@ -18,8 +20,8 @@ public class RefinancingController extends RefinancingAPI {
     }
 
     @PostMapping("/save")
-    public String createRefinancing(@RequestBody Refinancing refinancing){
-        String refinancingdb = super.createRefinancing(refinancing);
-        return refinancingdb;
+    public RefinancingOutput createRefinancing(@RequestBody RefinancingInput refinancingInput){
+        RefinancingOutput refinancingOutput = super.createRefinancing(refinancingInput);
+        return refinancingOutput;
     }
 }

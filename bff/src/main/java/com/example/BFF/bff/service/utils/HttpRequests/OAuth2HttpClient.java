@@ -1,11 +1,9 @@
 package com.example.BFF.bff.service.utils.HttpRequests;
 
-import com.example.BFF.bff.domaine.entities.Refinancing;
+import com.example.BFF.bff.domaine.RefinancingDTOs.RefinancingInput;
+import com.example.BFF.bff.domaine.RefinancingDTOs.RefinancingOutput;
 import com.example.BFF.bff.service.utils.ApiPath;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.http.*;
-import org.springframework.security.oauth2.client.OAuth2RestTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
@@ -19,21 +17,21 @@ public class OAuth2HttpClient implements HttpClient {
     }
 
     @Override
-    public String postRequest(String refinancingService, ApiPath refinancingCreate, Refinancing refinancing) {
+    public RefinancingOutput postRequest(String refinancingService, ApiPath refinancingCreate, RefinancingInput refinancingInput) {
 
         //Request
         RequestEntity<Object> request = RequestEntity
                 .post(refinancingCreate.getPath())
                 .accept(MediaType.APPLICATION_JSON)
                 .contentType(MediaType.APPLICATION_JSON)
-                .body(refinancing);
+                .body(refinancingInput);
 
         //Response
-        ResponseEntity<String> response = restTemplate.exchange(
+        ResponseEntity<RefinancingOutput> response = restTemplate.exchange(
                 refinancingCreate.getPath(),
                 HttpMethod.POST,
                 request,
-                String.class
+                RefinancingOutput.class
         );
         return response.getBody();
     }

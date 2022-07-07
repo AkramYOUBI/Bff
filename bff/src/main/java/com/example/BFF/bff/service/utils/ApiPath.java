@@ -5,7 +5,7 @@ import lombok.Getter;
 @Getter
 public enum ApiPath {
 
-    REFINANCING_CREATE("http://localhost:8080/api/refinancing/save", "REFINANCING");
+    REFINANCING_CREATE("http://localhost:8888/api/refinancing/save", "REFINANCING");
 
 
 

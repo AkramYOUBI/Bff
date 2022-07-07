@@ -5,9 +5,11 @@ import com.example.BFF.bff.domaine.support.GenericService.GenericService;
 import com.example.BFF.bff.service.utils.ApiPath;
 import com.example.BFF.bff.service.utils.ClientUrlProperties;
 import com.example.BFF.bff.service.utils.HttpRequests.HttpClient;
-
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 
 public class RefinancingService extends GenericService{
+
 
     public RefinancingService(ClientUrlProperties clientUrlProperties, HttpClient httpClient) {
         super(clientUrlProperties, httpClient);

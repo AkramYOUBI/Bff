@@ -1,36 +1,36 @@
 package com.example.BFF.bff.service.utils.HttpRequests;
 
+import com.example.BFF.bff.domaine.entities.Refinancing;
 import com.example.BFF.bff.service.utils.ApiPath;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.http.*;
+import org.springframework.security.oauth2.client.OAuth2RestTemplate;
+import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
-import java.net.URI;
-import java.util.Map;
-
-public class HttpClientImplementation implements HttpClient {
+@Component
+public class OAuth2HttpClient implements HttpClient {
 
     private final RestTemplate restTemplate;
-    private final ApiPath apiPath;
 
-    public HttpClientImplementation(RestTemplate restTemplate, ApiPath apiPath) {
+    public OAuth2HttpClient(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
-        this.apiPath = apiPath;
     }
 
-
     @Override
-    public String postRequest(String baseUrl, ApiPath url, Object payload) {
+    public String postRequest(String refinancingService, ApiPath refinancingCreate, Refinancing refinancing) {
 
         //Request
         RequestEntity<Object> request = RequestEntity
-                .post(url.getPath())
+                .post(refinancingCreate.getPath())
                 .accept(MediaType.APPLICATION_JSON)
                 .contentType(MediaType.APPLICATION_JSON)
-                .body(payload);
+                .body(refinancing);
 
         //Response
         ResponseEntity<String> response = restTemplate.exchange(
-                url.getPath(),
+                refinancingCreate.getPath(),
                 HttpMethod.POST,
                 request,
                 String.class

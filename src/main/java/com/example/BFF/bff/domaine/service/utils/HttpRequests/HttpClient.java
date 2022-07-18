@@ -9,4 +9,6 @@ public interface HttpClient {
     RefinancingOutput postRequest(String refinancingService, ApiPath refinancingCreate, RefinancingInput refinancingInput);
 
     RefinancingOutput getRequest(String refinancingService, ApiPath refinancingFind, String id);
+
+    RefinancingOutput putRequest(String refinancingService, String id, ApiPath refinancingUPDATE, RefinancingInput newRefinancing);
 }

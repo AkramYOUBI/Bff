@@ -25,4 +25,9 @@ public class RefinancingController extends RefinancingAPI {
         RefinancingOutput refinancingOutput = super.findRefinancing(id);
         return refinancingOutput;
     }
+    @PutMapping("/update/{id}")
+    public RefinancingOutput updateRefinancing(@PathVariable String id, @RequestBody RefinancingInput refinancingInput ){
+        RefinancingOutput refinancingOutput = super.updateRefinancing(id, refinancingInput);
+        return  refinancingOutput;
+    }
 }

@@ -20,4 +20,9 @@ public class RefinancingAPI {
         RefinancingOutput refinancingOutput = refinancingService.findRefinancing(id);
         return refinancingOutput;
     }
+
+    protected RefinancingOutput updateRefinancing(String id, RefinancingInput refinancingInput) {
+        RefinancingOutput refinancingOutput = refinancingService.updateRefinancing(id, refinancingInput);
+        return refinancingOutput;
+    }
 }

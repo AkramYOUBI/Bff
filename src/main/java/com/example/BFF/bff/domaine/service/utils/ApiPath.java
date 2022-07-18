@@ -6,7 +6,8 @@ import lombok.Getter;
 public enum ApiPath {
 
     REFINANCING_CREATE("http://localhost:8888/api/refinancing/save", "REFINANCING"),
-    REFINANCING_FIND("http://localhost:8888/api/refinancing/find/{id}", "REFINANCING");
+    REFINANCING_FIND("http://localhost:8888/api/refinancing/find/", "REFINANCING"),
+    REFINANCING_UPDATE("http://localhost:8888/api/refinancing/update/", "REFINANCING");
 
 
 

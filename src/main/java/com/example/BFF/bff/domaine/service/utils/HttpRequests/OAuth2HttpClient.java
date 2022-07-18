@@ -45,11 +45,29 @@ public class OAuth2HttpClient implements HttpClient {
         HttpEntity<Object> request = new HttpEntity<>(headers);
 
 
+        //Response
+        ResponseEntity<RefinancingOutput> response = restTemplate.exchange(
+                refinancingFind.getPath()+id,
+                HttpMethod.GET,
+                request,
+                RefinancingOutput.class
+        );
+        return response.getBody();
+    }
+
+    @Override
+    public RefinancingOutput putRequest(String refinancingService, String id, ApiPath refinancingUpdate, RefinancingInput newRefinancing) {
+        //Request
+        RequestEntity<Object> request = RequestEntity
+                .put(refinancingUpdate.getPath())
+                .accept(MediaType.APPLICATION_JSON)
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(newRefinancing);
 
         //Response
         ResponseEntity<RefinancingOutput> response = restTemplate.exchange(
-                refinancingFind.getPath(),
-                HttpMethod.GET,
+                refinancingUpdate.getPath()+id,
+                HttpMethod.PUT,
                 request,
                 RefinancingOutput.class
         );

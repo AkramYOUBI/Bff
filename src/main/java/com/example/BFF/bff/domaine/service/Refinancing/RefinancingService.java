@@ -22,7 +22,19 @@ public class RefinancingService extends GenericService{
 
     public RefinancingOutput findRefinancing(String id) {
         RefinancingOutput refinancingfromRefinancingService =
-        httpClient.getRequest( "refinancingService", ApiPath.REFINANCING_FIND ,id);
+                httpClient.getRequest( "refinancingService", ApiPath.REFINANCING_FIND ,id);
         return refinancingfromRefinancingService;
+    }
+
+    public RefinancingOutput updateRefinancing(String id, RefinancingInput newRefinancing) {
+        RefinancingOutput refinancingOutputResults = null;
+        RefinancingOutput refinancingfromRefinancingService =
+                httpClient.getRequest( "refinancingService", ApiPath.REFINANCING_FIND ,id);
+        if(refinancingfromRefinancingService != null){
+            RefinancingOutput refinancingOutput =
+                    httpClient.putRequest( "refinancingService", id, ApiPath.REFINANCING_UPDATE ,newRefinancing);
+            refinancingOutputResults = refinancingOutput;
+        }
+        return refinancingOutputResults;
     }
 }
